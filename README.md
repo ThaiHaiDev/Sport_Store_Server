@@ -11,7 +11,7 @@
 ### API
 #### Register Account 
 
-- *POST: api/v1/register* &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *POST: **api/v1/register*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Request:
     | params    | type   | require |
     | ---       | ---    | ---     |
@@ -19,7 +19,7 @@
     | lastName  | string | true    |
     | email  | string | true    |
     | password  | string | true    | 
-    | avater  | string | false    |
+    | avatar  | string | false    |
     | phone  | string | false    |
     | googleId  | string | false    |
     | facebookId  | string | false    |
