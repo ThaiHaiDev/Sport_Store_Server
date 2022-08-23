@@ -20,11 +20,84 @@
     | email  | string | true    |
     | password  | string | true    | 
     | avatar  | string | false    |
-    | phone  | string | false    |
+    | phone  | string | true    |
     | googleId  | string | false    |
     | facebookId  | string | false    |
     | status  | string | false    |
     | isAdmin  | boolean | default false    |
+
+- Response:
+```json
+{
+    "_id": "62ff067d2a6f2d35b72be673",
+    "firstName": "Hai",
+    "lastName": "Nguyen",
+    "email": "a@gmail.com",
+    "isAdmin": false,
+    "createdAt": "2022-08-19T03:41:49.494Z",
+    "updatedAt": "2022-08-19T03:41:49.494Z",
+    "__v": 0,
+}
+```
+
+#### Login Account 
+- *POST: **api/v1/login*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Request:
+    | params    | type   | require |
+    | ---       | ---    | ---     |
+    | email  | string | true    |
+    | password  | string | true    | 
+
+- Response:
+```json
+{
+    "_id": "62ff067d2a6f2d35b72be673",
+    "firstName": "Hai",
+    "lastName": "Nguyen",
+    "email": "a@gmail.com",
+    "isAdmin": false,
+    "createdAt": "2022-08-19T03:41:49.494Z",
+    "updatedAt": "2022-08-19T03:41:49.494Z",
+    "__v": 0,
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmYwNjdkMmE2ZjJkMzViNzJiZTY3MyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjYwOTAwNDEyLCJleHAiOjE2NjA5MDA0NDJ9.eL8hG06zfvY_aIWfb6uMFtPccNcjj-NYfFpxYoE5v-k",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmYwNjdkMmE2ZjJkMzViNzJiZTY3MyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjYwOTAwNDEyLCJleHAiOjE2NjA5MDE0MTJ9.Llr9MuSPvRRWhWON1AJnRMSFz457H1ucjWv-_zwWGwc"
+}
+```
+
+#### Login Account 
+- *POST: **api/v1/login*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Request:
+    | params    | type   | require |
+    | ---       | ---    | ---     |
+    | email  | string | true    |
+    | password  | string | true    | 
+
+- Response:
+```json
+{
+    "_id": "62ff067d2a6f2d35b72be673",
+    "firstName": "Hai",
+    "lastName": "Nguyen",
+    "email": "a@gmail.com",
+    "isAdmin": false,
+    "createdAt": "2022-08-19T03:41:49.494Z",
+    "updatedAt": "2022-08-19T03:41:49.494Z",
+    "__v": 0,
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmYwNjdkMmE2ZjJkMzViNzJiZTY3MyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjYwOTAwNDEyLCJleHAiOjE2NjA5MDA0NDJ9.eL8hG06zfvY_aIWfb6uMFtPccNcjj-NYfFpxYoE5v-k",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmYwNjdkMmE2ZjJkMzViNzJiZTY3MyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjYwOTAwNDEyLCJleHAiOjE2NjA5MDE0MTJ9.Llr9MuSPvRRWhWON1AJnRMSFz457H1ucjWv-_zwWGwc"
+}
+```
+   **refreshToken is saved in the returned cookie with the key refreshToken**
+
+
+#### Refresh Token
+- *POST: **api/v1/refresh*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *Headers: Cookie: 
+- Request:
+    | params    | type   | require |
+    | ---       | ---    | ---     |
+    | email  | string | true    |
+    | password  | string | true    | 
 
 - Response:
 ```json

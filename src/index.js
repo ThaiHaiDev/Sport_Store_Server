@@ -15,6 +15,13 @@ app.use(bodyParser.json())
 // Connect Database
 db.connect()
 
+// Khi xài cookies thì phải có cors config này với url là của FE
+app.use(cors({
+    origin: [
+        "http://localhost:3000",
+    ],
+    credentials: true,
+}))
 app.use(cookieParser())
 app.use(express.json())
 

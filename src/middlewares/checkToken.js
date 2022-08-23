@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const User = require('../app/models/user.model');
 
 // middleware như 1 thằng ở giữa, nếu thoả hết điều kiện này nó mới cho đi tiếp, không thỏa thì trả lại ở else
 
@@ -31,14 +32,21 @@ const middlewareController = {
 
     // verifyTokenAdmin
     verifyTokenAdmin: (req, res, next) => {
-        middlewareController.verifyToken(req, res, () => {
-            // Nếu id của user login = id user mình muốn xóa hoặc là admin
-            if(req.user.id == req.params.id || req.user.admin) { 
-                next();
+        middlewareController.verifyToken(req, res, async() => {
+            const user = await User.findById(req.params.id)
+            if (user) {
+                 // Nếu id của user login = id user mình muốn xóa hoặc là admin
+                if(req.user.id == req.params.id || req.user.admin) { 
+                    next();
+                }
+                else {
+                    return res.status(403).json("You're not allowed to delete orther...")
+                }
             }
             else {
-                return res.status(403).json("You're not allowed to delete orther...")
+                return res.status(403).json("User not found")
             }
+           
         })
     }
 }

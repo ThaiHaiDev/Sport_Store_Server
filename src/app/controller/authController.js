@@ -36,7 +36,7 @@ const authController = {
                 admin: user.isAdmin
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: "30s" }
+            { expiresIn: "300s" }
         )
     },
 
@@ -48,7 +48,7 @@ const authController = {
                 admin: user.isAdmin
             },
             process.env.JWT_REFRESH_KEY,
-            { expiresIn: "1000s" }
+            { expiresIn: "7d" }
         )
     },
 
@@ -110,7 +110,7 @@ const authController = {
                     admin: user.admin
                 },
                 process.env.JWT_ACCESS_KEY,
-                { expiresIn: "30s" }
+                { expiresIn: "300s" }
             )
 
             res.status(200).json({ accessToken: newAccessToken })
