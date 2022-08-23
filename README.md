@@ -9,7 +9,7 @@
 	|JWT_REFRESH_KEY       |✔       |Khóa bí mật (secret key), dùng trong Json Web token (refreshToken)                             |                |
 
 ### API
-#### Register Account 
+#### **Register Account** 
 
 - *POST: **api/v1/register*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Request:
@@ -40,7 +40,7 @@
 }
 ```
 
-#### Login Account 
+#### **Login Account** 
 - *POST: **api/v1/login*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Request:
     | params    | type   | require |
@@ -66,7 +66,7 @@
    ==> `refreshToken is saved in the returned cookie with the key refreshToken`
 
 
-#### Refresh Token
+#### **Refresh Token**
 - *POST: **api/v1/refresh*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[Cookie] : refreshToken**
 - Request:
@@ -82,7 +82,7 @@
 }
 ```
 
-#### Logout Account
+#### **Logout Account**
 - *POST: **api/v1/logout*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: Null
@@ -94,7 +94,7 @@
 }
 ```
 
-#### Get All Users
+#### **Get All Users**
 - *GET: **api/v1/user*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: Null
@@ -111,7 +111,7 @@
 }
 ```
 
-#### Get A User
+#### **Get A User**
 - *GET: **api/v1/user/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: Null
@@ -123,7 +123,7 @@
 }
 ```
 
-#### Add User
+#### **Add User**
 - *POST: **api/v1/user*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
@@ -156,7 +156,7 @@
 }
 ```
 
-#### Update User
+#### **Update User**
 - *PUT: **api/v1/user*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
@@ -180,7 +180,7 @@
 }
 ```
 
-#### Delete User With Params
+#### **Delete User With Params**
 - *DELETE: **api/v1/user/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: null
@@ -192,7 +192,7 @@
 }
 ```
 
-#### Delete User With Body
+#### **Delete User With Body**
 - *DELETE: **api/v1/user*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
