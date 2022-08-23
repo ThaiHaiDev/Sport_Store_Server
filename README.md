@@ -87,7 +87,7 @@
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmYwNjdkMmE2ZjJkMzViNzJiZTY3MyIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjYwOTAwNDEyLCJleHAiOjE2NjA5MDE0MTJ9.Llr9MuSPvRRWhWON1AJnRMSFz457H1ucjWv-_zwWGwc"
 }
 ```
-   **refreshToken is saved in the returned cookie with the key refreshToken**
+   ==> `refreshToken is saved in the returned cookie with the key refreshToken`
 
 
 #### Refresh Token
