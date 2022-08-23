@@ -5,9 +5,21 @@ const userController = require('../app/controller/userController');
 const checkToken = require('../middlewares/checkToken');
 
 // Get All Users 
-router.get('/', checkToken.verifyToken, userController.getAllUsers)
+router.get('/', checkToken.verifyTokenAdmin, userController.getAllUsers)
 
-// Delete User 
-router.delete('/:id', checkToken.verifyTokenAdmin, userController.deleteUser)
+// Get A User 
+router.get('/:id', checkToken.verifyTokenAdmin, userController.getAUser)
+
+// Add User
+router.post('/', checkToken.verifyTokenAdmin, userController.addUser)
+
+// Delete User By Id Params
+router.delete('/:id', checkToken.verifyTokenAdminDelete, userController.deleteUserWithParams)
+
+// Delete User By Id Body
+router.delete('/', checkToken.verifyTokenAdminDelete, userController.deleteUserWithBody)
+
+// Update A User 
+router.put('/:id', checkToken.verifyTokenAdmin, userController.updateUser)
 
 module.exports = router

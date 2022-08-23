@@ -30,11 +30,12 @@ const middlewareController = {
         } */
     },
 
-    // verifyTokenAdmin
-    verifyTokenAdmin: (req, res, next) => {
+    // verifyTokenAdmin when delete
+    verifyTokenAdminDelete: (req, res, next) => {
         middlewareController.verifyToken(req, res, async() => {
-            const user = await User.findById(req.params.id)
-            if (user) {
+            const userParams = await User.findById(req.params.id)
+            const userBody = await User.findById(req.body.id)
+            if (userParams || userBody) {
                  // Nếu id của user login = id user mình muốn xóa hoặc là admin
                 if(req.user.id == req.params.id || req.user.admin) { 
                     next();
@@ -47,6 +48,19 @@ const middlewareController = {
                 return res.status(403).json("User not found")
             }
            
+        })
+    },
+
+    // verifyTokenAdmin when add, update
+     verifyTokenAdmin: (req, res, next) => {
+        middlewareController.verifyToken(req, res, () => {
+            // Nếu id của user login = id user mình muốn AU hoặc là admin
+            if(req.user.id == req.params.id || req.user.admin) { 
+                next();
+            }
+            else {
+                return res.status(403).json("You're not allowed to orther...")
+            }
         })
     }
 }

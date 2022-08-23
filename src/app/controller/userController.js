@@ -11,11 +11,53 @@ const userController = {
         }
     },
 
-    // DELETE USER
-    async deleteUser (req, res) {
+    // GET A USER
+    async getAUser (req, res) {
+        try {
+            const user = await User.findById(req.params.id)
+            res.status(200).json(user)
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    },
+
+    // ADD USER
+    async addUser(req, res) {
+        try{
+            const formData = req.body
+            const newUser = new User(formData)
+            const saveUser = await newUser.save()
+            res.status(200).json(saveUser)
+        }catch(err) {
+            res.status(500).json(err)
+        }
+    },
+
+    // DELETE USER BY ID PARAMS
+    async deleteUserWithParams (req, res) {
         try {
             const user = await User.findByIdAndDelete(req.params.id)
             res.status(200).json("Delete success...")
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    },
+
+    // DELETE USER BY ID BODY
+    async deleteUserWithBody (req, res) {
+        try {
+            const user = await User.findByIdAndDelete(req.body.id)
+            res.status(200).json("Delete success...")
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    },
+
+    // UPDATE USER
+    async updateUser (req, res) {
+        try {
+            const user = await User.updateOne({ _id: req.params.id }, req.body) 
+            res.status(200).json("Update success...")
         } catch (error) {
             res.status(500).json(error)
         }

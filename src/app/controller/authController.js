@@ -36,7 +36,7 @@ const authController = {
                 admin: user.isAdmin
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: "300s" }
+            { expiresIn: "3000s" }
         )
     },
 
