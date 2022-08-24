@@ -1,6 +1,8 @@
 const User = require('../models/user.model');
+const { REGEX } = require('../../config/constants/index')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
 
 let refreshTokens = [];  // Khi login nó sẽ thêm refreshToken vào 
 const authController = {
@@ -9,7 +11,7 @@ const authController = {
         try {
             const salt = await bcrypt.genSalt(10)
             const hashed = await bcrypt.hash(req.body.password, salt)
-    
+            
             // Create new user
             const newUser = await new User({
                 firstName: req.body.firstName,
