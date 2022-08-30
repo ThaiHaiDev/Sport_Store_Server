@@ -37,7 +37,7 @@ const middlewareController = {
             const userBody = await User.findById(req.body.id)
             if (userParams || userBody) {
                  // Nếu id của user login = id user mình muốn xóa hoặc là admin
-                if(req.user.id == req.params.id || req.user.admin) { 
+                if(req.user.id == req.params.id || req.user.admin === 'admin') { 
                     next();
                 }
                 else {
@@ -55,7 +55,7 @@ const middlewareController = {
     verifyTokenAdmin: (req, res, next) => {
         middlewareController.verifyToken(req, res, () => {
             // Nếu id của user login = id user mình muốn AU hoặc là admin
-            if(req.user.id == req.params.id || req.user.admin) { 
+            if(req.user.id == req.params.id || req.user.admin === 'admin') { 
                 next();
             }
             else {

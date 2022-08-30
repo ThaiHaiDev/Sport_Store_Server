@@ -8,7 +8,6 @@ const UserSchema = new Schema({
     lastName: { type: String, trim: true, required: true, minLength: 3, maxLength: 50 },
     email: { type: String, maxlength: 255, required: true, unique: true, trim: true },
     password: { type: String, maxlength: 255, required: true, trim: true },
-    // isAdmin: { type: Boolean, default: false },
     isAdmin: {
       type: String,
       enum: Object.values(USER.ROLE),
@@ -16,6 +15,7 @@ const UserSchema = new Schema({
       required: true
     },
     phone: { type: String, unique: true, trim: true},
+    address: { type: String, trim: true},
     googleId: { type: String, trim: true, required: false },
     facebookId: { type: String, trim: true, required: false },
     status: { type: String }
