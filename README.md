@@ -206,3 +206,27 @@
     "message": ""
 }
 ```
+
+#### **Get All Categories**
+- *GET: **api/v1/category*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Headers: &nbsp; **[token] : Bearer {accessToken}**
+- Request: null
+
+- Response:
+```json
+{
+    "message": ""
+}
+```
+
+#### **Get A Category**
+- *GET: **api/v1/category/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Headers: &nbsp; **[token] : Bearer {accessToken}**
+- Request: null
+
+- Response:
+```json
+{
+    "message": ""
+}
+```

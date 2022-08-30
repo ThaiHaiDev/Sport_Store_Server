@@ -5,4 +5,15 @@ const REGEX = {
     PASSWORD: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.]).*$/
 };
 
-module.exports = REGEX
+const USER = {
+    ROLE: {
+      ADMIN: 'admin',
+      STAFF: 'manager',
+      CUSTOMER: 'customer'
+    }
+}
+
+module.exports = {
+    USER,
+    REGEX
+}
