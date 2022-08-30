@@ -7,7 +7,9 @@
 	|MONGO_URI             |✔       |Connection string để kết nối tới MongoDb                                                  |                |
 	|JWT_ACCESS_KEY            |✔       |Khóa bí mật (secret key), dùng trong Json Web token (accessToken)                                     |                |
 	|JWT_REFRESH_KEY       |✔       |Khóa bí mật (secret key), dùng trong Json Web token (refreshToken)                             |                |
-
+	|CLOUDINARY_API_KEY       |✔       |Khóa key của API Cloudinary để kết nối với storage lưu trữ hình ảnh                             |                |
+	|CLOUDINARY_API_SECRET       |✔       |Khóa key (secret key) của API Cloudinary để kết nối với storage lưu trữ hình ảnh                           |                |
+	|CLOUDINARY_NAME       |✔       |Tên của Storage Cloudinary lưu trữ hình ảnh                             |                |
 ### API
 #### **Register Account** 
 
