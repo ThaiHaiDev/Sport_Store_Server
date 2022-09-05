@@ -51,8 +51,21 @@ const middlewareController = {
         })
     },
 
-    // verifyTokenAdmin when add, update
+    // verifyTokenAdmin when add
     verifyTokenAdmin: (req, res, next) => {
+        middlewareController.verifyToken(req, res, () => {
+            // Nếu id của user login = id user mình muốn AU hoặc là admin
+            if(req.user.id == req.params.id || req.user.admin === 'admin' || req.user.admin === 'manager') { 
+                next();
+            }
+            else {
+                return res.status(403).json("You're not allowed to orther...")
+            }
+        })
+    },
+
+    // verifyTokenAdmin when update
+    verifyTokenAdminUpdate: (req, res, next) => {
         middlewareController.verifyToken(req, res, () => {
             // Nếu id của user login = id user mình muốn AU hoặc là admin
             if(req.user.id == req.params.id || req.user.admin === 'admin') { 

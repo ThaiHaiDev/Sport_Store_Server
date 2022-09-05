@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const bcrypt = require('bcrypt');
 
 const userController = {
     // GET ALL USERS
@@ -56,8 +57,12 @@ const userController = {
     // UPDATE USER
     async updateUser (req, res) {
         try {
-            const user = await User.updateOne({ _id: req.params.id }, req.body) 
-            res.status(200).json("Update success...")
+            const data = req.body
+            const { password, ...others } = data;
+            const salt = await bcrypt.genSalt(10)
+            const hashed = await bcrypt.hash(password, salt)
+            await User.updateOne({ _id: req.params.id }, {...others, password: hashed}) 
+            res.status(200).json('Updating success...')
         } catch (error) {
             res.status(500).json(error)
         }

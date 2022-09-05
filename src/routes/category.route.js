@@ -17,9 +17,9 @@ router.post('/', checkToken.verifyTokenAdmin, categoryController.addCategory)
 router.delete('/:id', checkToken.verifyTokenAdmin, categoryController.deleteCategoryWithParams)
 
 // Delete Category By Id Body
-router.delete('/', checkToken.verifyTokenAdmin, categoryController.deleteCategoryWithBody)
+router.delete('/', checkToken.verifyTokenAdminDelete, categoryController.deleteCategoryWithBody)
 
 // Update A Category 
-router.put('/:id', checkToken.verifyTokenAdmin, categoryController.updateCategory)
+router.put('/:id', checkToken.verifyTokenAdminUpdate, categoryController.updateCategory)
 
 module.exports = router

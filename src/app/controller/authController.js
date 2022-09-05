@@ -37,7 +37,7 @@ const authController = {
                 admin: user.isAdmin
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: "3000s" }
+            { expiresIn: "600s" }
         )
     },
 
@@ -95,9 +95,7 @@ const authController = {
         const refreshToken = req.cookies.refreshToken;
 
         if (!refreshToken) return res.status(401).json("You're not authenticated")
-        if (!refreshTokens.includes(refreshToken)) { // Check refreshToken đó phải là của chính user login vào
-            return res.status(403).json("Refresh token is not valid");
-        }
+
         jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, user) => {
             if(err) {
                 console.log(err);
@@ -111,7 +109,7 @@ const authController = {
                     admin: user.admin
                 },
                 process.env.JWT_ACCESS_KEY,
-                { expiresIn: "300s" }
+                { expiresIn: "60s" }
             )
 
             res.status(200).json({ accessToken: newAccessToken })

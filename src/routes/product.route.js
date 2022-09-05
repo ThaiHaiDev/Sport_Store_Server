@@ -14,10 +14,10 @@ router.get('/:id', checkToken.verifyTokenAdmin, productController.getAProduct)
 router.post('/', checkToken.verifyTokenAdmin, productController.addProduct)
 
 // Update A Product
-router.put('/:id', checkToken.verifyTokenAdmin, productController.updateProduct)
+router.put('/:id', checkToken.verifyTokenAdminUpdate, productController.updateProduct)
 
 // Delete Product By Id Params
-router.delete('/:id', checkToken.verifyTokenAdmin, productController.deleteProductWithParams)
+router.delete('/:id', checkToken.verifyTokenAdminDelete, productController.deleteProductWithParams)
 
 
 module.exports = router
