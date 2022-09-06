@@ -109,7 +109,7 @@ const authController = {
                     admin: user.admin
                 },
                 process.env.JWT_ACCESS_KEY,
-                { expiresIn: "60s" }
+                { expiresIn: "600s" }
             )
 
             res.status(200).json({ accessToken: newAccessToken })

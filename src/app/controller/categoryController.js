@@ -1,5 +1,6 @@
 const Category = require('../models/category.model');
 const Product = require('../models/product.model');
+const { cloudinary } = require('../../utils/cloudinary');
 
 const categoryController = {
     // GET ALL CATEGORIES
@@ -25,7 +26,16 @@ const categoryController = {
     // ADD CATEGORY
     async addCategory(req, res) {
         try{
-            const formData = req.body
+            const uploadResponse = await cloudinary.uploader.upload(req.body.image, {
+                upload_preset: 'sport_store',
+            });
+            const formData = {
+                name: req.body.name,
+                slug: req.body.slug,
+                desc: req.body.desc,
+                image: uploadResponse.url,
+                countProduct: req.body.countProduct
+            }
             const newCate = new Category(formData)
             const saveCate = await newCate.save()
             res.status(200).json(saveCate)
@@ -65,7 +75,17 @@ const categoryController = {
     // UPDATE CATEGORY
     async updateCategory (req, res) {
         try {
-            const cate = await Category.updateOne({ _id: req.params.id }, req.body) 
+            const uploadResponse = await cloudinary.uploader.upload(req.body.image, {
+                upload_preset: 'sport_store',
+            });
+            const formData = {
+                name: req.body.name,
+                slug: req.body.slug,
+                desc: req.body.desc,
+                image: uploadResponse.url,
+                countProduct: req.body.countProduct
+            }
+            const cate = await Category.updateOne({ _id: req.params.id }, formData) 
             res.status(200).json("Update success...")
         } catch (error) {
             res.status(500).json(error)

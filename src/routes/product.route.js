@@ -17,7 +17,7 @@ router.post('/', checkToken.verifyTokenAdmin, productController.addProduct)
 router.put('/:id', checkToken.verifyTokenAdminUpdate, productController.updateProduct)
 
 // Delete Product By Id Params
-router.delete('/:id', checkToken.verifyTokenAdminDelete, productController.deleteProductWithParams)
+router.delete('/:id', checkToken.verifyTokenAdmin, productController.deleteProductWithParams)
 
 
 module.exports = router
