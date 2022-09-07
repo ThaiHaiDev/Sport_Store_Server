@@ -36,7 +36,8 @@
 <summary><b>English</b></summary><br />
 
 Using technologies: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
-server of an ecommerce website with 3 permissions:
+	
+Server of an ecommerce website with 3 permissions:
 + Admin (full control, can delete anything, in addition can view customer invoice details as well as statistics on everything of the store)
 + Manager (also has the same rights as admin to be able to manage the store, but does not have the right to delete anything that the admin has not allowed)
 + Customer (only has the right to view and buy goods, does not affect the APIs of higher rights (admin, manager)
@@ -48,7 +49,8 @@ server of an ecommerce website with 3 permissions:
 <summary><b>Vietnamese</b></summary><br />
 
 Sử dụng các công nghệ: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
-server của 1 trang web ecommerce với 3 quyền:
+	
+Server của 1 trang web ecommerce với 3 quyền:
 + Admin (toàn quyền thao tác, có thể delete bất cứ gì, ngoài ra có thể xem chi tiết hóa đơn khác hàng cũng như thống kê mọi thứ của cửa hàng)
 + Manager (cũng có các quyền gần giống với admin để có thể quản lý store, tuy nhiên không có quyền xóa bất cứ gì mà admin chưa cho phép)
 + Customer (chỉ có quyền xem và mua hàng, không tác động gì đến các API của quyền cao hơn (admin, manager)
