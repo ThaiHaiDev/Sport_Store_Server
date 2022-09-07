@@ -10,6 +10,33 @@
 	|CLOUDINARY_API_KEY       |✔       |Khóa key của API Cloudinary để kết nối với storage lưu trữ hình ảnh                             |                |
 	|CLOUDINARY_API_SECRET       |✔       |Khóa key (secret key) của API Cloudinary để kết nối với storage lưu trữ hình ảnh                           |                |
 	|CLOUDINARY_NAME       |✔       |Tên của Storage Cloudinary lưu trữ hình ảnh                             |                |
+# Description (updating...)
+<details>
+<summary><b>English</b></summary><br />
+
+Using technologies: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
+server of an ecommerce website with 3 permissions:
++ admin (full control, can delete anything, in addition can view customer invoice details as well as statistics on everything of the store)
++ manager (also has the same rights as admin to be able to manage the store, but does not have the right to delete anything that the admin has not allowed)
++ customer (only has the right to view and buy goods, does not affect the APIs of higher rights (admin, manager)
+
+***Currently the server is still being updated with the necessary functions, the update will be regularly updated here. Thank you!***
+</details>
+
+<details>
+<summary><b>Vietnamese</b></summary><br />
+
+Sử dụng các công nghệ: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
+server của 1 trang web ecommerce với 3 quyền:
++ admin (toàn quyền thao tác, có thể delete bất cứ gì, ngoài ra có thể xem chi tiết hóa đơn khác hàng cũng như thống kê mọi thứ của cửa hàng)
++ manager (cũng có các quyền gần giống với admin để có thể quản lý store, tuy nhiên không có quyền xóa bất cứ gì mà admin chưa cho phép)
++ customer (chỉ có quyền xem và mua hàng, không tác động gì đến các API của quyền cao hơn (admin, manager)
+
+***Hiện tại server vẫn đang được tiếp tục update các chức năng cần thiết, phần cập nhật sẽ thường xuyên được update tại đây. Xin cảm ơn!***
+</details>
+<br />
+
+
 # List API (updating...)
 
 <details>
