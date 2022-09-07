@@ -1,4 +1,4 @@
-### Setup (updating...)
+# Setup (updating...)
 
 <details>
 <summary><b>English</b></summary><br />
@@ -36,7 +36,7 @@
 <summary><b>English</b></summary><br />
 
 Using technologies: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
-	
+
 Server of an ecommerce website with 3 permissions:
 + Admin (full control, can delete anything, in addition can view customer invoice details as well as statistics on everything of the store)
 + Manager (also has the same rights as admin to be able to manage the store, but does not have the right to delete anything that the admin has not allowed)
@@ -49,7 +49,7 @@ Server of an ecommerce website with 3 permissions:
 <summary><b>Vietnamese</b></summary><br />
 
 Sử dụng các công nghệ: NodeJS, Express, MongoDb, Mongoose, jwt-authentication, jwt-authorization, cloudinary
-	
+
 Server của 1 trang web ecommerce với 3 quyền:
 + Admin (toàn quyền thao tác, có thể delete bất cứ gì, ngoài ra có thể xem chi tiết hóa đơn khác hàng cũng như thống kê mọi thứ của cửa hàng)
 + Manager (cũng có các quyền gần giống với admin để có thể quản lý store, tuy nhiên không có quyền xóa bất cứ gì mà admin chưa cho phép)
