@@ -75,17 +75,29 @@ const categoryController = {
     // UPDATE CATEGORY
     async updateCategory (req, res) {
         try {
-            const uploadResponse = await cloudinary.uploader.upload(req.body.image, {
-                upload_preset: 'sport_store',
-            });
-            const formData = {
-                name: req.body.name,
-                slug: req.body.slug,
-                desc: req.body.desc,
-                image: uploadResponse.url,
-                countProduct: req.body.countProduct
+            if (req.body.image.slice(0,21) === 'http://res.cloudinary') {
+                const formData = {
+                    name: req.body.name,
+                    slug: req.body.slug,
+                    desc: req.body.desc,
+                    image: req.body.image,
+                    countProduct: req.body.countProduct
+                }
+                await Category.updateOne({ _id: req.params.id }, formData) 
+            } else {
+                const uploadResponse = await cloudinary.uploader.upload(req.body.image, {
+                    upload_preset: 'sport_store',
+                });
+                const formData = {
+                    name: req.body.name,
+                    slug: req.body.slug,
+                    desc: req.body.desc,
+                    image: uploadResponse.url,
+                    countProduct: req.body.countProduct
+                }
+                await Category.updateOne({ _id: req.params.id }, formData) 
             }
-            const cate = await Category.updateOne({ _id: req.params.id }, formData) 
+            
             res.status(200).json("Update success...")
         } catch (error) {
             res.status(500).json(error)

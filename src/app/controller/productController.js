@@ -1,5 +1,6 @@
 const Product = require('../models/product.model');
 const Category = require('../models/category.model');
+const { cloudinary } = require('../../utils/cloudinary');
 
 const productController = {
     // GET ALL PRODUCTS
@@ -25,7 +26,18 @@ const productController = {
     // ADD PRODUCT
     async addProduct(req, res) {
         try{
-            const formData = req.body
+            const uploadResponse = await cloudinary.uploader.upload(req.body.thumbnail, {
+                upload_preset: 'sport_store',
+            });
+            const formData = {
+                name: req.body.name,
+                thumbnail: uploadResponse.url,
+                desc: req.body.desc,
+                videoid: req.body.videoid,
+                quantity: req.body.quantity,
+                price: req.body.price,
+                category: req.body.category,
+            }
             const newProduct = new Product(formData)
             const saveProduct = await newProduct.save()
             if(req.body.category) {
@@ -64,7 +76,33 @@ const productController = {
     // UPDATE Product
     async updateProduct (req, res) {
         try {
-            await Product.updateOne({ _id: req.params.id }, req.body) 
+            if (req.body.thumbnail.slice(0,21) === 'http://res.cloudinary') {
+                const formData = {
+                    name: req.body.name,
+                    thumbnail: req.body.thumbnail,
+                    desc: req.body.desc,
+                    videoid: req.body.videoid,
+                    quantity: req.body.quantity,
+                    price: req.body.price,
+                    category: req.body.category,
+                }
+                await Product.updateOne({ _id: req.params.id }, formData) 
+            } else {
+                const uploadResponse = await cloudinary.uploader.upload(req.body.thumbnail, {
+                    upload_preset: 'sport_store',
+                });
+                const formData = {
+                    name: req.body.name,
+                    thumbnail: uploadResponse.url,
+                    desc: req.body.desc,
+                    videoid: req.body.videoid,
+                    quantity: req.body.quantity,
+                    price: req.body.price,
+                    category: req.body.category,
+                }
+                await Product.updateOne({ _id: req.params.id }, formData) 
+            }
+            res.status(200).json("Update success...")
             // Phát triển thêm sau
             // if(req.body.category) {
             //     const cate = await Category.findById(req.body.category).populate("products")
@@ -74,7 +112,6 @@ const productController = {
             //     console.log(cate.products.find({ "_id" : ObjectId(c)}))
             //     // await cate.products.updateOne( { "_id" : ObjectId(c) },{ $set: { "category": req.body.category } })
             // }
-            res.status(200).json("Update success...")
         } catch (error) {
             res.status(500).json(error)
         }
