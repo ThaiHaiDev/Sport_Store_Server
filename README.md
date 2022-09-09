@@ -511,3 +511,103 @@ Server của 1 trang web ecommerce với 3 quyền:
 ```
 </details>
 
+<details>
+<summary><b>Get All NewsOnTop</b></summary><br />
+
+- *GET: **api/v1/newstop*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Headers: &nbsp; null
+- Request: null
+
+- Response:
+```json
+[
+    {
+        "_id": "631b08d63e4ad36bdc96e9d5",
+        "name": "The Nike ZoomX Vaporfly NEXT%",
+        "desc": "The Nike ZoomX Vaporfly NEXT% clears your path to record-breaking speed with a lighter design and faster feel than before. With more cushioning underfoot and reduced weight up top, the result is unprecedented energy return and comfort",
+        "thumbnail": "https://raw.githubusercontent.com/ThaiHaiDev/StoreImage/main/Sport_store/zoomx-vaporfly-next-running-shoe-4Q5jfG.png",
+        "bgColor": "blue",
+        "picture_item_1": "https://raw.githubusercontent.com/ThaiHaiDev/StoreImage/main/Sport_store/zoomx-vaporfly-next-running-shoe-4Q5jfG-1.jpg",
+        "picture_item_2": "https://raw.githubusercontent.com/ThaiHaiDev/StoreImage/main/Sport_store/zoomx-vaporfly-next-running-shoe-4Q5jfG (1).jpg",
+        "picture_item_3": "https://raw.githubusercontent.com/ThaiHaiDev/StoreImage/main/Sport_store/zoomx-vaporfly-next-running-shoe-4Q5jfG (2).jpg",
+        "picture_item_4": "https://raw.githubusercontent.com/ThaiHaiDev/StoreImage/main/Sport_store/zoomx-vaporfly-next-running-shoe-4Q5jfG (3).jpg",
+        "quantity": 100,
+        "sold": 0,
+        "price": 230,
+        "category": {
+            "_id": "6304e3a2d459b2475990df4a",
+            "name": "Nike",
+            "countProduct": 0,
+            "createdAt": "2022-08-23T14:26:42.318Z",
+            "updatedAt": "2022-09-07T15:32:52.468Z",
+            "slug": "nike",
+            "__v": 0,
+            "products": [
+                "630503ee1e2bdc547c326d62",
+                "63088e792bf82311dc905125",
+                "6318a84d4674de3e1fdaa633"
+            ]
+        },
+        "views": 0,
+        "isOutOfStock": false,
+        "createdAt": "2022-09-09T09:35:18.251Z",
+        "updatedAt": "2022-09-09T09:35:18.251Z",
+        "slug": "the-nike-zoomx-vaporfly-next",
+        "__v": 0
+    },
+]
+```
+</details>
+
+<details>
+<summary><b>Add NewsOnTop</b></summary><br />
+
+- *POST: **api/v1/product*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- Headers: &nbsp; **[token] : Bearer {accessToken}**
+- Request: 
+```json
+{
+    "name": "require",
+    "desc": "require",
+    "thumbnail": "require",
+    "bgColor": "require",
+    "picture_item_1": "require",
+    "picture_item_2": "require",
+    "picture_item_3": "require",
+    "picture_item_4": "require",
+    "quantity": "require number",
+    "price": "require number",
+    "category": "require",
+    "sold": "no require number",
+    "videoid": "no require",
+    "views": "no require number",
+    "isOutOfStock": "no require boolean"
+}
+```
+
+- Response:
+```json
+{
+    "name": "",
+    "desc": "",
+    "thumbnail": "",
+    "bgColor": "",
+    "picture_item_1": "",
+    "picture_item_2": "",
+    "picture_item_3": "",
+    "picture_item_4": "",
+    "quantity": 100,
+    "sold": 0,
+    "price": 230,
+    "category": "",
+    "views": 0,
+    "isOutOfStock": false,
+    "_id": "",
+    "createdAt": "2022-09-09T10:03:36.898Z",
+    "updatedAt": "2022-09-09T10:03:36.898Z",
+    "slug": "",
+    "__v": 0
+}
+```
+</details>
+
