@@ -128,11 +128,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 
 - *POST: **api/v1/refresh*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[Cookie] : refreshToken**
-- Request:
-    | params    | type   | require |
-    | ---       | ---    | ---     |
-    | email  | string | true    |
-    | password  | string | true    | 
+- Request: null
 
 - Response:
 ```json
@@ -231,7 +227,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 <details>
 <summary><b>Update User</b></summary><br />
 
-- *PUT: **api/v1/user*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *PUT: **api/v1/user/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
     | params    | type   | require |
@@ -320,12 +316,12 @@ Server của 1 trang web ecommerce với 3 quyền:
 {
     "Info cate": {
         ...,
-        products: [
+        "products": [
             {
-                infoProduct_1
+                "infoProduct_1"
             },
             {
-                infoProduct_2
+                "infoProduct_2"
             }
         ]
     }
@@ -350,7 +346,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 - Response:
 ```json
 {
-    infoCateNew: {}
+    "infoCateNew": {}
 }
 ```
 </details>
@@ -358,7 +354,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 <details>
 <summary><b>Update A Category</b></summary><br />
 
-- *PUT: **api/v1/category*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *PUT: **api/v1/category":id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
     | params    | type   | require |
@@ -380,7 +376,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 <details>
 <summary><b>Delete A Category With Params</b></summary><br />
 
-- *DELETE: **api/v1/category*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *DELETE: **api/v1/category/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: null
 
@@ -463,7 +459,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 - Response:
 ```json
 {
-    infoProductNew: {}
+    "infoProductNew": {}
 }
 ```
 </details>
@@ -471,7 +467,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 <details>
 <summary><b>Update A Product</b></summary><br />
 
-- *PUT: **api/v1/product*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *PUT: **api/v1/product:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request:
     | params    | type   | require |
@@ -499,7 +495,7 @@ Server của 1 trang web ecommerce với 3 quyền:
 <details>
 <summary><b>Delete A Product</b></summary><br />
 
-- *DELETE: **api/v1/product*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
+- *DELETE: **api/v1/product/:id*** &nbsp; &nbsp; -- &nbsp; &nbsp;  **[content-type: application/json]** <br />
 - Headers: &nbsp; **[token] : Bearer {accessToken}**
 - Request: null
 
